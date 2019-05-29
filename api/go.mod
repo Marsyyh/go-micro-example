@@ -78,7 +78,7 @@ require (
 	github.com/micro/go-micro v1.2.0
 	github.com/micro/go-plugins v1.0.0 // indirect
 	github.com/micro/go-web v1.0.0 // indirect
-	github.com/micro/micro v1.1.1 // indirect
+	github.com/micro/micro v1.1.1
 	github.com/miekg/dns v1.1.13 // indirect
 	github.com/minio/highwayhash v1.0.0 // indirect
 	github.com/nats-io/go-nats-streaming v0.4.5 // indirect

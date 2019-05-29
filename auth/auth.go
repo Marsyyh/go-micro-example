@@ -1,29 +1,31 @@
 package main
 
 import (
-	pb "carconf-api/proto/user"
+	usersvc "carconf-api/proto/user"
 	"context"
 	"fmt"
-
+	"log"
 	"github.com/micro/go-micro"
 )
 
-type service struct{}
+type User struct{}
 
-func (this *service) Login(ctx context.Context, req *pb.User, res *pb.Response) error {
-	res.Message = "hello " + req.Name
-	res.Success = true
+func (u *User) Login(ctx context.Context, req *usersvc.LoginReq, rsp *usersvc.LoginRsp) error {
+	log.Print("Received Say.Hello request")
+
+	rsp.Message = "hello " + req.Name
+	rsp.Success = true
 	return nil
 }
 
 func main() {
 	server := micro.NewService(
-		micro.Name("go.micro.api.user"),
+		micro.Name("allride.micro.svc.user"),
 	)
 
 	server.Init()
 
-	pb.RegisterLoginServiceHandler(server.Server(), new(service))
+	usersvc.RegisterUserHandler(server.Server(), new(User))
 
 	err := server.Run()
 	if err != nil {

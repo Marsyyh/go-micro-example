@@ -1,15 +1,15 @@
 syntax  = "proto3";
-package usersrv;
+package usersvc;
 
-service LoginService {
-    rpc Login (User) returns (Response) {};
+service User {
+    rpc Login (LoginReq) returns (LoginRsp) {};
 }
 
-message User {
+message LoginReq {
     string name = 1;
 }
 
-message Response {
+message LoginRsp {
     bool success = 1;
     string message = 2;
 }

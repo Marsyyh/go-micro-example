@@ -2,6 +2,6 @@ FROM alpine:latest
 RUN mkdir /app
 WORKDIR /app
 
-ADD auth /app/auth-srv
+ADD auth /app/auth-svc
 
-CMD ["./auth-srv"]
+CMD ["./auth-svc"]
